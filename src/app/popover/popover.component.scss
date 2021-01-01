@@ -1,0 +1,8 @@
+ion-list {
+	background: var(--ion-color-background);
+
+	ion-item {
+		--background: none;
+		--color: var(--ion-color-background-contrast);
+	}
+}

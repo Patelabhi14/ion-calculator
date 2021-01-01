@@ -1,0 +1,29 @@
+ion-toolbar,
+ion-content {
+	--background: var(--ion-color-background);
+	--color: var(--ion-color-background-contrast);
+}
+
+.container,
+ion-list {
+	background: none;
+}
+
+ion-list .calculation {
+	height: 100%;
+	width: 100%;
+	text-align: right;
+	color: var(--ion-color-background-contrast);
+
+	h3 {
+		font-size: 1em;
+		font-weight: 600;
+		margin: 10px 0px 5px 0px;
+	}
+
+	h1 {
+		font-size: 2.5em;
+		font-weight: 700;
+		margin: 5px 0px 10px 0px;
+	}
+}

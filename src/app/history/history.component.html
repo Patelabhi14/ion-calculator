@@ -1,0 +1,21 @@
+<ion-header [translucent]="true" class="ion-no-border">
+	<ion-toolbar>
+		<ion-title>History</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="onClose()">
+				<ion-icon slot="icon-only" name="close-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<div class="ion-padding container">
+		<ion-list>
+			<div class="calculation" *ngFor="let cal of calculations">
+				<h3>{{ cal.expression }}</h3>
+				<h1>{{ cal.result }}</h1>
+			</div>
+		</ion-list>
+	</div>
+</ion-content>
