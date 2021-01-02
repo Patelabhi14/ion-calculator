@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
 	result: string = '';
 	lastOp: string;
 	calculations: Calculation[] = [];
+	isPortrait: boolean = true;
 
 	constructor(
 		private screen: ScreenOrientation,
@@ -27,7 +28,9 @@ export class HomePage implements OnInit {
 	ngOnInit() {
 		this.onToggleLight();
 		this.screen.onChange().subscribe(() => {
-			console.log(this.screen.type);
+			if (this.screen.type === 'portrait-primary') this.isPortrait = true;
+			else if (this.screen.type === 'landscape-primary')
+				this.isPortrait = false;
 		});
 	}
 

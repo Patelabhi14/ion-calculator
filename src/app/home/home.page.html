@@ -2,7 +2,15 @@
 	<ion-toolbar>
 		<ion-row>
 			<ion-col size="4" offset="4">
-				<div class="toggle-buttons">
+				<div class="toggle-portrait-buttons" *ngIf="isPortrait">
+					<button class="sunny" (click)="onToggleLight()">
+						<ion-icon name="sunny-outline"></ion-icon>
+					</button>
+					<button class="moon" (click)="onToggleDark()">
+						<ion-icon name="moon-outline"></ion-icon>
+					</button>
+				</div>
+				<div class="toggle-landscape-buttons" *ngIf="!isPortrait">
 					<button class="sunny" (click)="onToggleLight()">
 						<ion-icon name="sunny-outline"></ion-icon>
 					</button>
@@ -12,7 +20,12 @@
 				</div>
 			</ion-col>
 			<ion-col>
-				<div class="history-button">
+				<div class="history-portrait-button" *ngIf="isPortrait">
+					<button (click)="onShowHistory($event)">
+						<ion-icon name="ellipsis-vertical"></ion-icon>
+					</button>
+				</div>
+				<div class="history-landscape-button" *ngIf="!isPortrait">
 					<button (click)="onShowHistory($event)">
 						<ion-icon name="ellipsis-vertical"></ion-icon>
 					</button>
@@ -23,15 +36,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-	<div class="calculation-section">
-		<div class="operation-section">
+	<div class="calculation-portrait-section" *ngIf="isPortrait">
+		<div class="operation-portrait-section">
 			<h3>{{expression}}</h3>
 			<h1>{{result}}</h1>
 		</div>
 	</div>
 
-	<div class="button-section">
-		<div class="buttons">
+	<div class="button-portrait-section" *ngIf="isPortrait">
+		<div class="portrait-buttons">
 			<ion-grid>
 				<ion-row>
 					<ion-col size="3">
@@ -179,6 +192,168 @@
 						<div class="button-wrapper">
 							<button class="red-button" (click)="onButtonPress('=')">
 								<h2>=</h2>
+							</button>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</div>
+
+	<div class="calculation-landscape-section" *ngIf="!isPortrait">
+		<div class="operation-landscape-section">
+			<h3>{{expression}}</h3>
+			<h1>{{result}}</h1>
+		</div>
+	</div>
+
+	<div class="button-landscape-section" *ngIf="!isPortrait">
+		<div class="landscape-buttons">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(7)">
+								<h2>7</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(8)">
+								<h2>8</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(9)">
+								<h2>9</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="blue-button" (click)="onButtonPress('ac')">
+								<h2>AC</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress('c')">
+								<ion-icon name="backspace-outline"></ion-icon>
+							</button>
+						</div>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(4)">
+								<h2>4</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(5)">
+								<h2>5</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(6)">
+								<h2>6</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="blue-button" (click)="onButtonPress('pm')">
+								<h2>+/-</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="red-button" (click)="onButtonPress('x')">
+								<h2>&times;</h2>
+							</button>
+						</div>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(1)">
+								<h2>1</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(2)">
+								<h2>2</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(3)">
+								<h2>3</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="blue-button" (click)="onButtonPress('per')">
+								<h2>%</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="red-button" (click)="onButtonPress('-')">
+								<h2>&minus;</h2>
+							</button>
+						</div>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress(0)">
+								<h2>0</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button (click)="onButtonPress('.')">
+								<h2>.</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="red-button" (click)="onButtonPress('/')">
+								<h2>/</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="red-button" (click)="onButtonPress('=')">
+								<h2>=</h2>
+							</button>
+						</div>
+					</ion-col>
+					<ion-col size="2.4">
+						<div class="button-wrapper">
+							<button class="red-button" (click)="onButtonPress('+')">
+								<h2>+</h2>
 							</button>
 						</div>
 					</ion-col>

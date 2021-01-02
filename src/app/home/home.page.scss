@@ -3,37 +3,17 @@ ion-content {
 	--background: var(--ion-color-background);
 }
 
-.history-button {
-	height: 40px;
-	margin-top: 10px;
+.toggle-portrait-buttons,
+.history-portrait-button,
+.toggle-landscape-buttons,
+.history-landscape-button {
 	display: flex;
-	justify-content: flex-end;
 
 	button {
 		padding: 0px 10px;
 		outline: none;
-		background: none;
 
 		ion-icon {
-			font-size: 1.5em;
-			color: var(--ion-color-dark);
-		}
-	}
-}
-
-.toggle-buttons {
-	height: 40px;
-	margin-top: 10px;
-	display: flex;
-
-	button {
-		flex-grow: 1;
-		padding: 0px 10px;
-		outline: none;
-		background-color: var(--ion-color-light);
-
-		ion-icon {
-			font-size: 1.5em;
 			color: var(--ion-color-dark);
 		}
 	}
@@ -49,47 +29,111 @@ ion-content {
 	}
 }
 
-.calculation-section {
+.toggle-portrait-buttons,
+.history-portrait-button {
+	height: 40px;
+}
+
+.toggle-landscape-buttons,
+.history-landscape-button {
+	height: 30px;
+}
+
+.toggle-portrait-buttons,
+.toggle-landscape-buttons {
+	button {
+		flex-grow: 1;
+		background-color: var(--ion-color-light);
+	}
+}
+
+.toggle-portrait-buttons button ion-icon {
+	font-size: 1.5em;
+}
+
+.toggle-landscape-buttons button ion-icon {
+	font-size: 1em;
+}
+
+.history-portrait-button,
+.history-landscape-button {
+	justify-content: flex-end;
+
+	button {
+		background: none;
+	}
+}
+
+.history-portrait-button button ion-icon {
+	font-size: 1.5em;
+}
+
+.history-landscape-button button ion-icon {
+	font-size: 1em;
+}
+
+.calculation-portrait-section,
+.calculation-landscape-section {
 	height: 30%;
 	width: 100%;
 	background-color: var(--ion-color-background);
 
-	.operation-section {
+	.operation-portrait-section,
+	.operation-landscape-section {
 		height: 100%;
 		width: 100%;
-		padding: 1.5em;
+		padding: 1em;
 		text-align: right;
 		color: var(--ion-color-background-contrast);
 
 		h3 {
-			font-size: 1.5em;
 			font-weight: 600;
 		}
 
 		h1 {
-			font-size: 4em;
 			font-weight: 700;
+		}
+	}
+
+	.operation-portrait-section {
+		h3 {
+			font-size: 1.5em;
+		}
+
+		h1 {
+			font-size: 4em;
+		}
+	}
+
+	.operation-landscape-section {
+		h3 {
+			font-size: 0.7em;
+		}
+
+		h1 {
+			font-size: 1.5em;
 		}
 	}
 }
 
-.button-section {
+.button-portrait-section,
+.button-landscape-section {
 	height: 70%;
 	background-color: var(--ion-color-light);
 	border-top-left-radius: 7.5%;
 	border-top-right-radius: 7.5%;
 
-	.buttons {
+	.portrait-buttons,
+	.landscape-buttons {
 		height: 100%;
 		width: 100%;
-		padding: 1.5em;
+		padding: 1em;
 
 		ion-grid {
 			height: 100%;
 			width: 100%;
 
 			ion-row {
-				height: calc(100% / 5);
 				width: 100%;
 
 				.button-wrapper {
@@ -107,14 +151,12 @@ ion-content {
 
 						h2 {
 							margin: 16px 0px;
-							font-size: 1.5em;
 							font-weight: 600;
 							color: var(--ion-color-medium-contrast);
 						}
 
 						ion-icon {
-							margin: 16px 0px;
-							font-size: 1.8em;
+							margin: 15px 0px;
 							color: var(--ion-color-medium-contrast);
 						}
 					}
@@ -126,6 +168,38 @@ ion-content {
 					.red-button h2 {
 						color: var(--ion-color-danger);
 					}
+				}
+			}
+		}
+	}
+
+	.portrait-buttons {
+		ion-row {
+			height: calc(100% / 5);
+
+			.button-wrapper button {
+				h2 {
+					font-size: 1.5em;
+				}
+
+				ion-icon {
+					font-size: 1.8em;
+				}
+			}
+		}
+	}
+
+	.landscape-buttons {
+		ion-row {
+			height: calc(100% / 4);
+
+			.button-wrapper button {
+				h2 {
+					font-size: 0.9em;
+				}
+
+				ion-icon {
+					font-size: 1.2em;
 				}
 			}
 		}
